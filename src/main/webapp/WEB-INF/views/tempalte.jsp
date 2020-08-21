@@ -22,9 +22,7 @@
 </head>
 <body>
     <div class="container">
-        <h1>Welcome to Spring Training</h1>
-        <a href="<c:url value="/spittles" />"/>Spittles</a>
-        <a href="<c:url value="/spitter/register" />"/>Register</a>
+
     </div>
 
     <!-- jQuery (Bootstrap 的所有 JavaScript 插件都依赖 jQuery，所以必须放在前边) -->

@@ -20,7 +20,7 @@ public class SpittleRepositoryImpl implements SpittleRepository {
     public List<Spittle> findSpittles(Long max, Integer count) {
         ArrayList<Spittle> spittles = Lists.newArrayListWithExpectedSize(count);
         for (int i = 0; i < count; i++) {
-            spittles.add(new Spittle("spittle+" + i, new Date()));
+            spittles.add(new Spittle((long)i,"spittle+" + i, new Date(),(double)i,(double)(-i)));
         }
         return spittles;
     }

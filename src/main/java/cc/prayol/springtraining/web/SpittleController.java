@@ -6,6 +6,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.List;
 
@@ -24,7 +25,7 @@ public class SpittleController {
     }
 
     @RequestMapping(method = RequestMethod.GET)
-    public List<Spittle> spittles() {
-        return spittleRepository.findSpittles(Long.MAX_VALUE,20);
+    public List<Spittle> spittles(@RequestParam(defaultValue = "5") Integer count) {
+        return spittleRepository.findSpittles(Long.MAX_VALUE,count);
     }
 }
