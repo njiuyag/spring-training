@@ -6,9 +6,7 @@ import org.springframework.web.filter.*;
 import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
 import org.springframework.web.util.IntrospectorCleanupListener;
 
-import javax.servlet.Filter;
-import javax.servlet.ServletContext;
-import javax.servlet.ServletException;
+import javax.servlet.*;
 
 
 /**
@@ -51,5 +49,11 @@ public class SpringTrainingWebAppInitializer extends AbstractAnnotationConfigDis
                 new RequestContextFilter(),
                 new HeartbeatCheckFilter()
         };
+    }
+
+    @Override
+    protected void customizeRegistration(ServletRegistration.Dynamic registration) {
+        registration.setMultipartConfig(new MultipartConfigElement("/tmp/spittr/uploads"));
+        super.customizeRegistration(registration);
     }
 }

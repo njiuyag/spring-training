@@ -31,22 +31,13 @@
     <div class="listTitle">
         <h1>Recent Spittles</h1>
         <ul class="list-group" th:each="spittle:${spittleList}">
-
-                <li id="spittle_${spittle.id}" class="list-group-item">
-                <div class="spittleMessage"><c:out value="${spittle.message}" /></div>
+                <li th:id="spittle_+${spittle.id}" class="list-group-item">
+                <div class="spittleMessage" th:text="${spittle.message}"></div>
                 <div>
-                    <span class="spittleTime"><c:out value="${spittle.time}" /></span>
-                    <c:if test="spittle.latitude!=null&&spittle.longitude!=null">
-                        <span class="spittleLocation">(<c:out value="${spittle.latitude}" />, <c:out value="${spittle.longitude}" />)</span>
-                    </c:if>
+                    <span class="spittleTime" th:text="${spittle.time}"></span>
                 </div>
                 </li>
         </ul>
-        <c:if test="${fn:length(spittleList) gt 20}">
-            <hr />
-            <s:url value="/spittles?count=${nextCount}" var="more_url" />
-            <a href="${more_url}">Show more</a>
-        </c:if>
     </div>
 </div>
 
